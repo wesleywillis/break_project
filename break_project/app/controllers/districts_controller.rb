@@ -1,4 +1,10 @@
 class DistrictsController < ApplicationController
   def index
-  end  
+    @districts = District.all
+  end
+
+  def show
+    id = params[:id]
+    @district = District.find(id)
+  end
 end

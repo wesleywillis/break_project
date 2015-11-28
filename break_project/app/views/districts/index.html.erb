@@ -1,1 +1,7 @@
 <h1> Hey this will be my break project </h1>
+<h2><%=link_to "Add a District", new_district_path %></h2>
+<ul class='index'>
+  <% @districts.each do |district| %>
+      <li><%=link_to district.name, district_path(district.id) %></li>
+  <% end %>
+</ul>
