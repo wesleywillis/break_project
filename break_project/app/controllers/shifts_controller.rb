@@ -5,6 +5,9 @@ class ShiftsController < ApplicationController
     @client = Client.find(@worker.client_id)
   end
 
+#need to think about how this method will worke
+#maybe new will mean clock in
+#and edit will mean clock out
   def create
     worker = Worker.find(params[:worker_id])
     client = Client.find(worker.client_id)
