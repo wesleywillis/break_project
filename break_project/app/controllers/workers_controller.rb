@@ -1,4 +1,9 @@
 class WorkersController < ApplicationController
+  def show
+    id = params[:id]
+    @worker = Worker.find(id)
+  end
+
   def new
     @header = "Add A New Worker"
     @worker = Worker.new
