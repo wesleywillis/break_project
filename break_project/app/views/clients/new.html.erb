@@ -1,0 +1,25 @@
+<%= form_for @client, url: { action: @action}, method: @method do |f| %>
+
+  <fieldset>
+    <legend><%=@title%></legend>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+    <br>
+    <%= f.label :dob%>
+    <%= f.datetime_select :dob %>
+    <br>
+    <%= f.label :address%>
+    <%= f.text_field :address%>
+    <br>
+    <%= f.label :city %>
+    <%= f.text_field :city%>
+    <br>
+    <%= f.label :state %>
+    <%= f.text_field :state%>
+    <br>
+    <%= f.label :zip %>
+    <%= f.text_field :zip%>
+    <br>
+  </fieldset>
+  <%= f.submit %>
+<% end %>
