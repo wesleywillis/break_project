@@ -19,7 +19,7 @@ class WorkersController < ApplicationController
     id = params[:client_id]
     client = Client.find(id)
     client.workers.create(worker_params)
-    redirect_to client_path(id)
+    redirect_to district_client_path(client.district_id, id)
   end
 
   def update
@@ -32,9 +32,9 @@ class WorkersController < ApplicationController
 
   def destroy
     id = params[:id]
-    client_id = params[:client_id]
+    client = Client.find(params[:client_id])
     Worker.find(id).destroy
-    redirect_to client_path(client_id)
+    redirect_to district_client_path(client.district_id, client.id)
   end
 
   private
