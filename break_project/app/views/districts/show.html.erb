@@ -7,6 +7,9 @@
   <li>Zip Code: <%= @district.zip %></li>
 </ul>
 
+<li><%=link_to "Add a new client", new_district_client_path(@district) %></li>
+
+
 <h3>Clients:</h3>
 <table>
   <tbody>

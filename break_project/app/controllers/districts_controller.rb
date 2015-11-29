@@ -35,6 +35,12 @@ class DistrictsController < ApplicationController
     redirect_to district_path(params[:id])
   end
 
+  def destroy
+    id = params[:id]
+    @district =District.find(id).destroy
+    redirect_to districts_path
+  end
+
   private
   def district_params
     params.require(:district).permit(:name, :address, :city, :state, :zip)
