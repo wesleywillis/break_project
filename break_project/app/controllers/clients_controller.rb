@@ -3,6 +3,8 @@ class ClientsController < ApplicationController
   end
 
   def show
+    id = params[:id]
+    @client = Client.find(id)
   end
 
   def create
