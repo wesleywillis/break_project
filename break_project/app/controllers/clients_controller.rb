@@ -21,12 +21,23 @@ class ClientsController < ApplicationController
   end
 
   def edit
+    @title = "Edit Client Info"
+    id = params[:id]
+    @action = "update"
+    @method = :patch
+    @client = Client.find(id)
+    render "new"
   end
 
   def update
+    Client.update(params[:id], client_params)
+    redirect_to district_path(params[:district_id])
   end
 
   def destroy
+    id = params[:id]
+    @client =Client.find(id).destroy
+    redirect_to district_path(params[:district_id])
   end
 
 
