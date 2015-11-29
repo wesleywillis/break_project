@@ -15,9 +15,9 @@
   <tbody>
   <% @clients.each do |client| %>
   <tr>
-      <td>◦ <%= client.name%></td>
-        <td><%=link_to "✐", edit_district_client_path(@district, client) %></td>
-        <td><%=link_to "✘",district_client_path(@district, client), method: :delete, data: {confirm: "Are you sure?"} %></td>
+      <td><%=link_to client.name, district_client_path(@district, client) %></td>
+      <td><%=link_to "✐", edit_district_client_path(@district, client) %></td>
+      <td><%=link_to "✘",district_client_path(@district, client), method: :delete, data: {confirm: "Are you sure?"} %></td>
   <% end %>
   </tr>
 </tbody>
