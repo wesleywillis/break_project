@@ -8,4 +8,25 @@
   <li>Zip Code: <%= @worker.zip %></li>
 </ul>
 
-<td> <%= link_to "Clock In/Out", new_district_client_worker_shift_path(@client.district_id, @client.id, @worker.id) %></td>
+<h4> <%= link_to "Clock In/Out", new_district_client_worker_shift_path(@client.district_id, @client.id, @worker.id) %></h4>
+<h4>Total Hours Worked This Month: <%= @worker.month_totals %></h4>
+
+<h3>Monthly Shifts:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Stop</th>
+      <th>Total Time</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @worker.month_shifts.each do |shift|%>
+      <tr>
+          <td><%= shift.start%></td>
+          <td><%=shift.stop%></td>
+          <td><%=shift.stop.strftime('%H:%M:%S').to_i - shift.start.strftime('%H:%M:%S').to_i%></td>
+        <%end%>
+      </tr>
+  </tbody>
+</table>

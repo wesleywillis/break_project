@@ -13,8 +13,8 @@ class ShiftsController < ApplicationController
     client = Client.find(worker.client_id)
 
     worker.shifts.create(
-      start: Time.now,
-      stop: Time.now,
+      start: Time.now.strftime('%H:%M:%S').to_i,
+      stop: Time.now.strftime('%H:%M:%S').to_i,
       worker_id: params[:worker_id],
       )
     redirect_to district_client_worker_path(client.district_id, client.id, worker.id)
