@@ -6,6 +6,7 @@ class DistrictsController < ApplicationController
   def show
     id = params[:id]
     @district = District.find(id)
+    @clients = @district.clients
   end
 
   def create
