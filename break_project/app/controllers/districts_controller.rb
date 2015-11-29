@@ -6,6 +6,7 @@ class DistrictsController < ApplicationController
   def show
     id = params[:id]
     @district = District.find(id)
+    @clients = @district.clients
   end
 
   def create
@@ -32,6 +33,12 @@ class DistrictsController < ApplicationController
   def update
     District.update(params[:id], district_params[:district])
     redirect_to district_path(params[:id])
+  end
+
+  def destroy
+    id = params[:id]
+    @district =District.find(id).destroy
+    redirect_to districts_path
   end
 
   private

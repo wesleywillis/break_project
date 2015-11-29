@@ -1,7 +1,14 @@
-<h1> Hey this will be my break project </h1>
 <h2><%=link_to "Add a District", new_district_path %></h2>
-<ul class='index'>
-  <% @districts.each do |district| %>
-      <li><%=link_to district.name, district_path(district.id) %></li>
+
+<h3>Districts:</h3>
+<table>
+  <tbody>
+    <% @districts.each do |district| %>
+  <tr>
+      <td><%=link_to district.name, district_path(district.id) %></td>
+        <td><%=link_to "✐", edit_district_path(district) %></td>
+        <td><%=link_to "✘",district_path(district), method: :delete, data: {confirm: "Are you sure?"} %></td>
   <% end %>
-</ul>
+  </tr>
+</tbody>
+</table>
