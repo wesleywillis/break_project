@@ -7,3 +7,5 @@
   <li>State: <%= @worker.state %></li>
   <li>Zip Code: <%= @worker.zip %></li>
 </ul>
+
+<td> <%= link_to "Clock In/Out", new_district_client_worker_shift_path(@client.district_id, @client.id, @worker.id) %></td>

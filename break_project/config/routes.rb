@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   resources :districts do
     resources :clients do
       resources :workers do
-        resources :hours
+        resources :shifts
       end
     end
   end

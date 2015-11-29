@@ -2,6 +2,7 @@ class WorkersController < ApplicationController
   def show
     id = params[:id]
     @worker = Worker.find(id)
+    @client = Client.find(params[:client_id])
   end
 
   def new

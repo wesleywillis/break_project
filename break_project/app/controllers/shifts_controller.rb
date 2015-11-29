@@ -12,7 +12,7 @@ class ShiftsController < ApplicationController
     worker = Worker.find(params[:worker_id])
     client = Client.find(worker.client_id)
 
-    district.client.worker.shifts.create(
+    worker.shifts.create(
       start: Time.now,
       stop: Time.now,
       worker_id: params[:worker_id],
