@@ -1,10 +1,10 @@
-<%= form_for @shift, url: { action: "create"} do |f| %>
+<%= form_for @shift, url: { action: @action}, method: @method do |f| %>
 
   <fieldset>
     <legend></legend>
     <br>
-    <%= f.label :start, "Clock In?" %>
-    <%= f.check_box :start%>`
+    <%= f.label @label, @header %>
+    <%= f.check_box @label%>`
     <br>
   </fieldset>
   <%= f.submit %>
