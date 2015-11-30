@@ -7,3 +7,19 @@
   <li>State: <%= @client.state %></li>
   <li>Zip Code: <%= @client.zip %></li>
 </ul>
+
+<%= link_to "Add A New Worker", new_district_client_worker_path(@client.district_id,@client.id) %>
+
+<h3>Workers:</h3>
+<table>
+  <tbody>
+    <% @client.workers.each do |worker| %>
+      <tr>
+        <td> <%= worker.name %></td>
+        <td><%=link_to worker.name, district_client_worker_path(@client.district_id,@client.id, worker.id) %></td>
+        <td> <%= link_to "✐", edit_district_client_worker_path(@client.district_id,@client.id,worker.id) %> </td>
+        <td> <%=link_to "✘", district_client_worker_path(@client.district_id,@client.id,worker.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ body {
+   font-family: 'Abril Fatface';
+   color: #F0F0F0;
+   background-color: #1a1a1a;
+   background-attachment: fixed;
+ }
+
+ a {
+ color: #F2F2F2;
+ text-decoration: none;
+
+}
+
+a:hover {color: #20c98e}

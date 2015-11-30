@@ -1,0 +1,36 @@
+<h1><%= @worker.name %></h1>
+
+<ul>
+  <li>Date of Birth: <%= @worker.dob %></li>
+  <li>Address: <%= @worker.address %></li>
+  <li>City: <%= @worker.city %></li>
+  <li>State: <%= @worker.state %></li>
+  <li>Zip Code: <%= @worker.zip %></li>
+</ul>
+
+<h4> <%= link_to "Clock In?", new_district_client_worker_shift_path(@client.district_id, @client.id, @worker.id) %></h4>
+
+<h4>Total Hours Worked This Month: <%= @worker.month_totals %></h4>
+
+<h3>Monthly Shifts:</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>Stop</th>
+      <th>Total Time</th>
+      <th>hhh</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @worker.month_shifts.each do |shift|%>
+      <tr>
+          <td><%= shift.start%></td>
+          <td><%=shift.stop%></td>
+          <td><%=shift.stop.strftime('%H:%M:%S').to_i - shift.start.strftime('%H:%M:%S').to_i%></td>
+          <td><%= link_to "Clock Out?", edit_district_client_worker_shift_path(@client.district_id, @client.id, @worker.id, shift.id) %></td>
+
+        <%end%>
+      </tr>
+  </tbody>
+</table>
