@@ -28,6 +28,7 @@ This is a rough draft of rails app to track hours for homecare workers
 ## Improvements for the Future
 * Authentification for each type of user - worker, district, client
 *
+
 ## Contributing to development
 *
 *
