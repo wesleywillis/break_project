@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151129060917) do
+ActiveRecord::Schema.define(version: 20151222235504) do
+
+  create_table "assemblies_parts", id: false, force: :cascade do |t|
+    t.integer "assembly_id"
+    t.integer "part_id"
+  end
+
+  add_index "assemblies_parts", ["assembly_id"], name: "index_assemblies_parts_on_assembly_id"
+  add_index "assemblies_parts", ["part_id"], name: "index_assemblies_parts_on_part_id"
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +32,14 @@ ActiveRecord::Schema.define(version: 20151129060917) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "clients_workers", id: false, force: :cascade do |t|
+    t.integer "client_id"
+    t.integer "worker_id"
+  end
+
+  add_index "clients_workers", ["client_id"], name: "index_clients_workers_on_client_id"
+  add_index "clients_workers", ["worker_id"], name: "index_clients_workers_on_worker_id"
 
   create_table "districts", force: :cascade do |t|
     t.string   "name"
