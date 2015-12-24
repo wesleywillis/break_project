@@ -1,5 +1,5 @@
 class Worker < ActiveRecord::Base
-  belongs_to :client
+  has_and_belongs_to_many :clients
   has_many :shifts
 
   def month_shifts
